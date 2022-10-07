@@ -13,10 +13,10 @@ capitals = {'Alabama': 'Montgomery','Alaska': 'Juneau','Arizonaa':'Phoenix', 'Ar
 # Генерация списка билетов
 
 for quizNum in range(3):
-    #TODO cоздать файлы билетов и ключей ответов
+    # Создание файлов билетов и ключей ответов
     quizFile = open('capitalsquiz%s.txt' % (quizNum + 1), 'w')
 
-    #TODO Hаписать заголовок билета
+    # Написание заголовка билета
     answerKeyFile = open('capitalsquiz_answers%s.txt' % (quizNum + 1), 'w')
 
     quizFile.write('Name:\n\nDate:\n\nYear:\n\n')
@@ -24,12 +24,12 @@ for quizNum in range(3):
                    'Proverka znaniy stolits shtatov (Ticket %s)' % (quizNum + 1))
     quizFile.write('\n\n')
 
-    #TODO Перемешать порядок следования штатов
+    # Перемешивание порядка следования штатов
 
     states = list(capitals.keys())
     random.shuffle(states)
 
-    #TODO Организовать цикл по всем 50 штатм, создавая вопрос для каждого
+    # Организовать цикл по всем 50 штатм, создавая вопрос для каждого
     for questionNume in range(len(capitals)):
         correctAnswer = capitals[states[questionNume]]
         wrongAnswers = list(capitals.values())
@@ -38,13 +38,13 @@ for quizNum in range(3):
         answerOptions = wrongAnswers + [correctAnswer]
         random.shuffle(answerOptions)
 
-        #TODO Записать варианты вопросов и ответов в файл билета
+        # Записать варианты вопросов и ответов в файл билета
         quizFile.write('%s. Vibirite stolitsu shtata %s.\n' % (questionNume + 1, states[questionNume]))
         for i in range(4):
             quizFile.write(' %s. %s\n' % ('ABCD'[i], answerOptions[i]))
         quizFile.write('\n')
 
-        #TODO Записать ключ ответа в файл
+        # Записать ключ ответа в файл
         answerKeyFile.write('%s. %s\n' % (questionNume + 1, 'ABCD'[answerOptions.index(correctAnswer)]))
 
     quizFile.close()

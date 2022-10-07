@@ -1,6 +1,6 @@
-import os, shelve
+import os
 
-testVar = "C:\\pythonl\\module_os_testing"
+testVar = "C:\\Source\\pythonl\\module_os_testing"
 print(os.path.basename(testVar))
 
 helloFile = open(testVar + '\\newtext1.txt','w')
@@ -18,4 +18,3 @@ helloFile.close()
 
 print(contentRead)
 print('\n**********************************\n')
-print(contentReadlines)
